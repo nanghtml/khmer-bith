@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="km" class="h-full bg-zinc-950 text-zinc-100 selection:bg-amber-500 selection:text-white dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>គណនាអាយុ ចន្ទគតិ ជតារាសី & Tenses | Khmer Age, Zodiac & Tenses System</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Khmer & English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- JS Confetti Library for Celebrations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        khmer: ['Kantumruy Pro', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'Kantumruy Pro', 'sans-serif']
+                    },
+                    colors: {
+                        khmerGold: '#D4AF37',
+                        khmerGoldDark: '#B38B21',
+                        darkBg: '#0b0c10',
+                        cardDark: '#12141c',
+                        cardBorder: '#1f2430'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        input, select, textarea {
+            font-size: 16px !important;
+            touch-action: manipulation;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(18, 20, 28, 0.6);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2f3d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        /* Printable Styles */
+        @media print {
+            header, nav, form, #sliderSection, #controlsRow, button, footer, .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            #certificateCard {
+                border: 3px solid #C5A059 !important;
+                box-shadow: none !important;
+                background: white !important;
+                color: black !important;
+                margin: 0 auto !important;
+            }
+            #certificateCard * {
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-full bg-zinc-950 text-zinc-100 transition-colors duration-200 flex flex-col justify-between">
+
+    <header class="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+            <!-- Logo & Title -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-zinc-950 flex items-center justify-center font-black text-xl shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold text-white leading-snug flex items-center gap-2">
+                        <span>គណនាអាយុ ចន្ទគតិ & Tenses</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-semibold hidden sm:inline-block">v2.0 Pro</span>
+                    </h1>
+                    <p class="text-[11px] text-zinc-400 font-medium">Khmer Birth, Lunar Zodiac & Grammar Tense System</p>
+                </div>
+            </div>
+
+            <!-- Top Controls -->
+            <div class="flex items-center gap-2">
+                <!-- Toggle Khmer Numerals -->
+                <button id="numberToggleBtn" onclick="toggleNumberSystem()" 
+                        class="h-9 px-3 rounded-xl text-xs font-semibold bg-zinc-900 hover:bg-zinc-800 text-zinc-200 transition flex items-center gap-1.5 border border-zinc-800 active:scale-95">
+                    <i class="fa-solid fa-arrow-right-arrow-left text-amber-400 text-[11px]"></i>
+                    <span id="numberToggleText">លេខខ្មែរ (០-៩)</span>
+                </button>
+
+                <!-- Theme Switcher -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" 
+                        class="w-9 h-9 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 transition flex items-center justify-center border border-zinc-800 active:scale-95">
+                    <i class="fa-solid fa-moon text-amber-400 text-xs dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-amber-400 text-xs hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-6 flex-1 w-full">
+
+        <section class="bg-cardDark rounded-2xl p-5 sm:p-7 border border-cardBorder shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between mb-5 pb-3 border-b border-zinc-800/80">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+                    <h2 class="text-base sm:text-lg font-bold text-white">បញ្ចូលទិន្នន័យកំណើត ( Personal Information )</h2>
+                </div>
+                <span class="text-xs text-zinc-400 hidden sm:inline">សូមបញ្ចូលឈ្មោះ និងថ្ងៃខែឆ្នាំកំណើត</span>
+            </div>
+
+            <form id="calcForm" onsubmit="calculateAll(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <!-- User Name Field -->
+                    <div class="space-y-1.5">
+                        <label for="userName" class="block text-xs font-semibold text-zinc-300">
+                            ឈ្មោះ / Name <span class="text-zinc-500 font-normal">(ជម្រើស)</span>
+                        </label>
+                        <div class="relative flex items-center rounded-xl border border-zinc-800 bg-zinc-900/80 focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20 transition-all overflow-hidden h-11">
+                            <div class="w-10 h-full flex items-center justify-center text-zinc-400 border-r border-zinc-800 bg-zinc-900 shrink-0 text-xs">
+                                <i class="fa-regular fa-user"></i>
+                            </div>
+                            <input type="text" id="userName" placeholder="ឧ. សុខា / Sokha" value="សំណាង (Samnang)"
+                                class="w-full h-full px-3 bg-transparent text-white font-medium text-xs outline-none placeholder:text-zinc-600">
+                        </div>
+                    </div>
+
+                    <!-- Birth Date Field -->
+                    <div class="space-y-1.5">
+                        <label for="birthDate" class="block text-xs font-semibold text-zinc-300">
+                            ថ្ងៃខែឆ្នាំកំណើត / Birth Date <span class="text-amber-400 font-bold">*</span>
+                        </label>
+                        <div class="relative flex items-center rounded-xl border border-zinc-800 bg-zinc-900/80 focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20 transition-all overflow-hidden h-11">
+                            <div class="w-10 h-full flex items-center justify-center text-zinc-400 border-r border-zinc-800 bg-zinc-900 shrink-0 text-xs">
+                                <i class="fa-regular fa-calendar-days"></i>
+                            </div>
+                            <input type="date" id="birthDate" value="2003-02-04" required
+                                class="w-full h-full px-3 bg-transparent text-white font-medium text-xs outline-none cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Birth Time Field -->
+                    <div class="space-y-1.5">
+                        <label for="birthTime" class="block text-xs font-semibold text-zinc-300">
+                            ម៉ោងកំណើត / Birth Time <span class="text-zinc-500 font-normal">(ជម្រើស)</span>
+                        </label>
+                        <div class="relative flex items-center rounded-xl border border-zinc-800 bg-zinc-900/80 focus-within:border-amber-500 focus-within:ring-2 focus-within:ring-amber-500/20 transition-all overflow-hidden h-11">
+                            <div class="w-10 h-full flex items-center justify-center text-zinc-400 border-r border-zinc-800 bg-zinc-900 shrink-0 text-xs">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <input type="time" id="birthTime" value="08:30"
+                                class="w-full h-full px-3 bg-transparent text-white font-medium text-xs outline-none cursor-pointer">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Presets & Action Button Bar -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-zinc-800/80">
+                    <div class="flex items-center gap-2 flex-wrap text-xs text-zinc-400">
+                        <span class="font-medium text-zinc-400 text-[11px]">គំរូកាលបរិច្ឆេទ៖</span>
+                        <button type="button" onclick="setPresetDate('1998-05-15', '08:30', 'សុខា')" class="px-2.5 py-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 transition text-[11px] border border-zinc-800">15-05-1998</button>
+                        <button type="button" onclick="setPresetDate('2000-01-01', '12:00', 'កញ្ញា')" class="px-2.5 py-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 transition text-[11px] border border-zinc-800">01-01-2000</button>
+                        <button type="button" onclick="setPresetDate('2005-11-20', '15:45', 'វិបុល')" class="px-2.5 py-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 transition text-[11px] border border-zinc-800">20-11-2005</button>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 font-bold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all duration-200 flex items-center justify-center gap-2 active:scale-95">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+                        <span>គណនា និងបង្ហាញលទ្ធផល</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <nav class="flex items-center gap-1.5 p-1.5 bg-cardDark rounded-xl border border-cardBorder overflow-x-auto no-scrollbar">
+            <button onclick="switchTab('tab-summary')" id="btn-tab-summary" class="tab-btn flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-2 bg-amber-500 text-zinc-950 shadow-md">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>សង្ខេប & ម៉ោងទាន់ចិត្ត</span>
+            </button>
+            <button onclick="switchTab('tab-zodiac')" id="btn-tab-zodiac" class="tab-btn flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-dragon text-amber-400"></i>
+                <span>ចន្ទគតិ & ឆុងរាសី</span>
+            </button>
+            <button onclick="switchTab('tab-tenses')" id="btn-tab-tenses" class="tab-btn flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-book-open-reader text-sky-400"></i>
+                <span>ប្រព័ន្ធ Tenses & ជីវិត</span>
+            </button>
+            <button onclick="switchTab('tab-cert')" id="btn-tab-cert" class="tab-btn flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-award text-emerald-400"></i>
+                <span>ប័ណ្ណខួប & ចែករំលែក</span>
+            </button>
+        </nav>
+
+        <div id="tab-summary" class="tab-content space-y-6">
+            
+            <!-- Live Clock Hero Banner -->
+            <section class="bg-cardDark rounded-2xl p-6 sm:p-8 text-white border border-cardBorder shadow-2xl relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-zinc-800/80 pb-4">
+                    <div>
+                        <span class="text-[11px] text-amber-400 font-bold uppercase tracking-wider block mb-1">
+                            <i class="fa-solid fa-cake-candles mr-1"></i> អាយុសរុប & រយៈពេលរស់នៅរបស់ <span id="heroDisplayName" class="underline text-white">សុខា</span>
+                        </span>
+                        <h3 id="fullBirthDateStr" class="text-xl sm:text-3xl font-black text-white tracking-wide">១៥ / ០៥ / ១១៩៨</h3>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <span id="liveBadge" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            Live Ticking
+                        </span>
+                        <button onclick="triggerConfetti()" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-glass-cheers"></i>
+                            <span>អបអរសាទរ</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ticking Clock Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                    <div class="bg-zinc-900/80 rounded-2xl p-4 text-center border border-zinc-800/80 shadow-inner">
+                        <span id="ageYears" class="block text-2xl sm:text-4xl font-black text-amber-400">0</span>
+                        <span class="text-[11px] text-zinc-400 font-medium">ឆ្នាំ (Years)</span>
+                    </div>
+                    <div class="bg-zinc-900/80 rounded-2xl p-4 text-center border border-zinc-800/80 shadow-inner">
+                        <span id="ageMonths" class="block text-2xl sm:text-4xl font-black text-amber-400">0</span>
+                        <span class="text-[11px] text-zinc-400 font-medium">ខែ (Months)</span>
+                    </div>
+                    <div class="bg-zinc-900/80 rounded-2xl p-4 text-center border border-zinc-800/80 shadow-inner">
+                        <span id="ageDays" class="block text-2xl sm:text-4xl font-black text-amber-400">0</span>
+                        <span class="text-[11px] text-zinc-400 font-medium">ថ្ងៃ (Days)</span>
+                    </div>
+                    <div class="bg-zinc-900/80 rounded-2xl p-4 text-center border border-zinc-800/80 shadow-inner">
+                        <span id="ageHours" class="block text-2xl sm:text-4xl font-black font-mono text-zinc-200">0</span>
+                        <span class="text-[11px] text-zinc-400 font-medium">ម៉ោង (Hours)</span>
+                    </div>
+                    <div class="bg-zinc-900/80 rounded-2xl p-4 text-center border border-zinc-800/80 shadow-inner">
+                        <span id="ageMinutes" class="block text-2xl sm:text-4xl font-black font-mono text-zinc-200">0</span>
+                        <span class="text-[11px] text-zinc-400 font-medium">នាទី (Minutes)</span>
+                    </div>
+                    <div class="bg-zinc-900/80 rounded-2xl p-4 text-center border border-zinc-800/80 shadow-inner">
+                        <span id="ageSeconds" class="block text-2xl sm:text-4xl font-black font-mono text-emerald-400 animate-pulse">0</span>
+                        <span class="text-[11px] text-zinc-400 font-medium">វិនាទី (Seconds)</span>
+                    </div>
+                </div>
+
+                <!-- Born Day & Lucky Color Bar -->
+                <div class="mt-6 pt-5 border-t border-zinc-800/80 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-3 bg-zinc-900/60 rounded-xl p-3.5 border border-zinc-800/60">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-base shrink-0">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-zinc-400 block">ថ្ងៃកើតប្រចាំសប្តាហ៍</span>
+                            <span id="dayOfWeekKm" class="font-bold text-white text-sm">ថ្ងៃសុក្រ</span>
+                            <span id="dayOfWeekEn" class="text-xs text-zinc-400 ml-1">(Friday)</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-zinc-900/60 rounded-xl p-3.5 border border-zinc-800/60">
+                        <div id="luckyColorBadge" class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shadow-md shrink-0">
+                            <i class="fa-solid fa-palette text-sm"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-zinc-400 block">ពណ៌មង្គលប្រចាំថ្ងៃកើត</span>
+                            <span id="luckyColorName" class="font-bold text-white text-sm">ពណ៌ខៀវ / ផ្ទៃមេឃ</span>
+                            <p id="luckyColorDesc" class="text-[11px] text-zinc-400 line-clamp-1">តំណាងឲ្យព្រះសុក្រ មានភាពត្រជាក់ត្រជុំ</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fun Statistics & Year Progress -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Heartbeats -->
+                <div class="p-4 rounded-2xl bg-cardDark border border-cardBorder shadow-sm flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-zinc-400 block">ចលនាបេះដូងប្រមាណ</span>
+                        <h4 id="statHeartbeats" class="text-sm font-bold text-white font-mono">0</h4>
+                        <span class="text-[10px] text-zinc-500">ដង (Heartbeats)</span>
+                    </div>
+                </div>
+
+                <!-- Breaths -->
+                <div class="p-4 rounded-2xl bg-cardDark border border-cardBorder shadow-sm flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-zinc-400 block">ចំនួនដង្ហើមប្រមាណ</span>
+                        <h4 id="statBreaths" class="text-sm font-bold text-white font-mono">0</h4>
+                        <span class="text-[10px] text-zinc-500">ដង (Breaths)</span>
+                    </div>
+                </div>
+
+                <!-- Sleep Time -->
+                <div class="p-4 rounded-2xl bg-cardDark border border-cardBorder shadow-sm flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-zinc-400 block">ពេលគេងលក់សរុប</span>
+                        <h4 id="statSleepYears" class="text-sm font-bold text-white font-mono">0 ឆ្នាំ</h4>
+                        <span class="text-[10px] text-zinc-500">~ 1/3 នៃអាយុកាល</span>
+                    </div>
+                </div>
+
+                <!-- Next Birthday -->
+                <div class="p-4 rounded-2xl bg-cardDark border border-cardBorder shadow-sm flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-zinc-400 block">ខួបកំណើតបន្ទាប់</span>
+                        <h4 id="statNextBirthday" class="text-sm font-bold text-amber-400">នៅសល់ 0 ថ្ងៃ</h4>
+                        <span id="nextBirthdayDate" class="text-[10px] text-zinc-500">-- / -- / ----</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="tab-zodiac" class="tab-content hidden space-y-6">
+            
+            <!-- Khmer Lunar Zodiac Card -->
+            <section class="bg-cardDark rounded-2xl p-6 border border-cardBorder shadow-2xl space-y-6">
+                <div class="flex items-center justify-between pb-4 border-b border-zinc-800">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                        <h3 class="text-base font-bold text-white">ខែឆ្នាំចន្ទគតិ & ធាតុប្រចាំឆ្នាំ (Khmer Lunar Zodiac)</h3>
+                    </div>
+                    <span class="text-xs font-semibold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                        តម្រាហោរាសាស្ត្រខ្មែរ
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Zodiac Animal -->
+                    <div class="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/60 flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-2xl shrink-0">
+                            <span id="zodiacEmoji">🐅</span>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-zinc-400 block">ឆ្នាំរាសី (Zodiac)</span>
+                            <h4 id="zodiacName" class="text-sm font-bold text-white">ឆ្នាំខាល (Tiger)</h4>
+                        </div>
+                    </div>
+
+                    <!-- Khmer Sak -->
+                    <div class="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/60 flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-800 text-amber-400 flex items-center justify-center text-lg shrink-0 font-bold">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-zinc-400 block">ស័ក (Khmer Sak)</span>
+                            <h4 id="khmerSakName" class="text-sm font-bold text-white">ទោស័ក</h4>
+                        </div>
+                    </div>
+
+                    <!-- Element -->
+                    <div class="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/60 flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-zinc-400 block">ធាតុប្រចាំឆ្នាំ (Element)</span>
+                            <h4 id="khmerElement" class="text-sm font-bold text-white">ធាតុទឹក</h4>
+                        </div>
+                    </div>
+
+                    <!-- Lunar Phase -->
+                    <div class="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/60 flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-zinc-400 block">ចន្ទគតិ (Phase)</span>
+                            <h4 id="lunarPhaseText" class="text-sm font-bold text-white">កើត / រោច</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEW FEATURE: Partner Zodiac & Element Compatibility Calculator -->
+            <section class="bg-cardDark rounded-2xl p-6 border border-cardBorder shadow-2xl space-y-5">
+                <div class="flex items-center justify-between pb-3 border-b border-zinc-800">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                        <h3 class="text-base font-bold text-white">ពិនិត្យគូព្រេង & ធាតុឆុងរាសី (Zodiac Compatibility Check)</h3>
+                    </div>
+                    <span class="text-xs text-zinc-400">ជ្រើសរើសឆ្នាំកំណើតដៃគូ ឬមិត្តភក្តិ</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                    <!-- Target Zodiac Select -->
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-semibold text-zinc-300">ឆ្នាំកំណើតដៃគូ (Partner's Year)</label>
+                        <select id="partnerBirthYear" onchange="calculateCompatibility()" 
+                                class="w-full h-11 px-3 bg-zinc-900 rounded-xl border border-zinc-800 text-white text-xs font-medium outline-none focus:border-amber-500">
+                            <!-- JS options filled dynamically -->
+                        </select>
+                    </div>
+
+                    <!-- Compatibility Gauge -->
+                    <div id="compatBox" class="md:col-span-2 p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-3.5">
+                            <div id="compatPercentCircle" class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 border-2 border-emerald-500 flex items-center justify-center font-black text-lg shrink-0">
+                                85%
+                            </div>
+                            <div>
+                                <span id="compatTag" class="text-xs font-bold text-emerald-400 block">ត្រូវគ្នាល្អខ្លាំង (Great Harmony)</span>
+                                <h4 id="compatSummary" class="text-xs text-zinc-300 font-medium">ឆ្នាំខាល (Tiger) & ឆ្នាំមមី (Horse) - ធាតុទឹក + ធាតុឈើ</h4>
+                            </div>
+                        </div>
+                        <p id="compatAdvice" class="text-[11px] text-zinc-400 italic bg-zinc-950 p-2.5 rounded-lg border border-zinc-800/80 max-w-xs">
+                            "ធាតុទឹកជួយចិញ្ចឹមធាតុឈើ នាំមកនូវភាពរុងរឿង សុភមង្គល និងយោគយល់គ្នាយ៉ាងល្អ!"
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="tab-tenses" class="tab-content hidden space-y-6">
+            
+            <!-- Tense Cards Grid -->
+            <section class="bg-cardDark rounded-2xl p-6 border border-cardBorder shadow-2xl space-y-6">
+                <div class="flex items-center justify-between pb-4 border-b border-zinc-800">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+                        <h3 class="text-base font-bold text-white">ប្រព័ន្ធ English Grammar Tenses តាមអាយុ</h3>
+                    </div>
+                    <span class="text-xs text-zinc-400">របៀបប្រើប្រាស់ Past, Present, Future</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Past Tense Card -->
+                    <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                                    1. Past Tense (អតីតកាល)
+                                </span>
+                                <i class="fa-solid fa-clock-rotate-left text-zinc-500 text-xs"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-zinc-200 mb-1">Simple Past / Event</h4>
+                            <p id="pastEn" class="text-xs text-zinc-200 font-medium italic mb-2 p-3 rounded-xl bg-zinc-950 border border-zinc-800">
+                                "Sokha was born on Friday, May 15, 1998."
+                            </p>
+                            <p id="pastKm" class="text-xs text-zinc-400 leading-relaxed">
+                                សុខា បានកើតនៅថ្ងៃសុក្រ ទី១៥ ខែឧសភា ឆ្នាំ១៩៩៨។
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-zinc-500 border-t border-zinc-800 pt-2">
+                            <span class="font-bold text-rose-400">Form:</span> Subject + V2 (was born)
+                        </div>
+                    </div>
+
+                    <!-- Present Tense Card -->
+                    <div class="p-5 rounded-xl border-2 border-amber-500/40 bg-amber-500/5 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-500 text-zinc-950">
+                                    2. Present Tense (បច្ចុប្បន្នកាល)
+                                </span>
+                                <i class="fa-solid fa-circle text-amber-400 text-[8px] animate-ping"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-zinc-200 mb-1">Present Simple / Age Status</h4>
+                            <p id="presentEn" class="text-xs text-zinc-100 font-medium italic mb-2 p-3 rounded-xl bg-zinc-950 border border-amber-500/30">
+                                "Sokha is currently 28 years old."
+                            </p>
+                            <p id="presentKm" class="text-xs text-zinc-300 leading-relaxed">
+                                បច្ចុប្បន្ន សុខា មានអាយុ ២៨ ឆ្នាំ។
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-zinc-500 border-t border-amber-500/20 pt-2">
+                            <span class="font-bold text-amber-400">Form:</span> Subject + am/is/are + Age
+                        </div>
+                    </div>
+
+                    <!-- Future Tense Card -->
+                    <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                    3. Future Tense (អនាគតកាល)
+                                </span>
+                                <i class="fa-solid fa-arrow-right text-zinc-500 text-xs"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-zinc-200 mb-1">Simple Future / Next Birthday</h4>
+                            <p id="futureEn" class="text-xs text-zinc-200 font-medium italic mb-2 p-3 rounded-xl bg-zinc-950 border border-zinc-800">
+                                "Sokha will turn 29 years old in 233 days."
+                            </p>
+                            <p id="futureKm" class="text-xs text-zinc-400 leading-relaxed">
+                                សុខា នឹងគម្រប់អាយុ ២៩ ឆ្នាំនៅសល់ ២៣៣ ថ្ងៃទៀត។
+                            </p>
+                        </div>
+                        <div class="text-[11px] text-zinc-500 border-t border-zinc-800 pt-2">
+                            <span class="font-bold text-emerald-400">Form:</span> Subject + will + V1 (turn)
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Age Slider -->
+                <div id="sliderSection" class="p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 space-y-3">
+                    <div class="flex items-center justify-between text-xs font-bold text-zinc-200">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-amber-400"></i>
+                            សាកល្បងរំកិលអាយុដើម្បីរៀនទម្រង់ Tenses (Life Age Slider)
+                        </span>
+                        <span id="sliderAgeDisplay" class="text-amber-400 font-extrabold text-sm bg-zinc-950 px-3 py-1 rounded-lg border border-zinc-800">28 ឆ្នាំ</span>
+                    </div>
+
+                    <input type="range" id="ageSlider" min="0" max="100" value="28" oninput="updateSliderTense(this.value)"
+                        class="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-500">
+
+                    <div class="flex justify-between text-[10px] text-zinc-500 font-medium">
+                        <span>0 ឆ្នាំ (Past)</span>
+                        <span>50 ឆ្នាំ (Midlife)</span>
+                        <span>100 ឆ្នាំ (Future)</span>
+                    </div>
+
+                    <div id="sliderTenseResult" class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-200">
+                        <!-- Dynamic slider content -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="tab-cert" class="tab-content hidden space-y-6">
+            
+            <section class="bg-cardDark rounded-2xl p-6 sm:p-8 border border-cardBorder shadow-2xl text-center space-y-6">
+                <div class="max-w-md mx-auto space-y-1">
+                    <h3 class="text-base sm:text-lg font-bold text-white">ប័ណ្ណខួបកំណើត ( Certificate Card )</h3>
+                    <p class="text-xs text-zinc-400">ប័ណ្ណសង្ខេបអាយុ និងឆ្នាំរាសីសម្រាប់បោះពុម្ព ឬចែករំលែក</p>
+                </div>
+
+                <!-- Printable Card Body -->
+                <div id="certificateCard" class="max-w-lg mx-auto rounded-3xl p-6 sm:p-8 bg-zinc-950 text-white border-2 border-amber-500/60 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none text-amber-400 text-9xl font-black">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+
+                    <div class="border border-amber-500/30 rounded-2xl p-6 space-y-4 bg-zinc-900/50 backdrop-blur-sm relative z-10">
+                        <span class="text-[10px] tracking-widest uppercase font-extrabold text-amber-400 block border-b border-amber-500/20 pb-2">
+                            KHMER BIRTHDAY & ZODIAC CERTIFICATE
+                        </span>
+
+                        <h2 id="certUserHeader" class="text-xl sm:text-2xl font-black text-white">សុខា (Sokha)</h2>
+                        <h3 id="certAgeHeader" class="text-2xl sm:text-4xl font-extrabold text-amber-400">អាយុ ២៨ ឆ្នាំ</h3>
+
+                        <div class="h-0.5 w-16 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
+
+                        <p id="certDetails" class="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed">
+                            កើតនៅថ្ងៃសុក្រ ទី១៥ ខែឧសភា ឆ្នាំ១៩៩៨<br>
+                            រាសី៖ <span id="certZodiac" class="text-amber-400 font-bold">ឆ្នាំខាល ទោស័ក ធាតុទឹក</span>
+                        </p>
+
+                        <p class="text-[11px] text-amber-200/80 italic pt-2">
+                            "សូមឲ្យមានសុខភាពល្អ បរិបូរណ៍ដោយសមគ្គីភាព ចម្រើនដោយអាយុ វណ្ណៈ សុខៈ ពលៈ!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Action Controls Row -->
+                <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <button onclick="copySummaryText()" class="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-amber-400 border border-zinc-800 text-xs font-bold transition inline-flex items-center gap-2 active:scale-95">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>ចម្លងអត្ថបទសង្ខេប (Copy Summary)</span>
+                    </button>
+
+                    <button onclick="printCard()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 text-xs font-bold transition inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95">
+                        <i class="fa-solid fa-print"></i>
+                        <span>បោះពុម្ព / រក្សាទុកប័ណ្ណ (Print / Save)</span>
+                    </button>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="border-t border-zinc-800/80 py-6 text-center text-xs text-zinc-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© 2026 គណនាអាយុ ចន្ទគតិ & English Tenses System — ផលិតឡើងសម្រាប់ប្រជាជនកម្ពុជា</p>
+            <div class="flex items-center gap-3">
+                <span class="text-[11px] text-zinc-600">Khmer Calendar & Education Tool</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global State
+        let useKhmerNumbers = true;
+        let globalCalculatedAge = 28;
+        let liveTimerInterval = null;
+
+        // Khmer Zodiac Constants
+        const KHMER_ZODIACS = [
+            { name: "ឆ្នាំជូត", en: "Rat", emoji: "🐀", elementIdx: 0 },
+            { name: "ឆ្នាំឆ្លូវ", en: "Ox", emoji: "🐂", elementIdx: 4 },
+            { name: "ឆ្នាំខាល", en: "Tiger", emoji: "🐅", elementIdx: 1 },
+            { name: "ឆ្នាំថោះ", en: "Rabbit", emoji: "🐇", elementIdx: 2 },
+            { name: "ឆ្នាំរោង", en: "Dragon", emoji: "🐉", elementIdx: 3 },
+            { name: "ឆ្នាំម្សាញ់", en: "Snake", emoji: "🐍", elementIdx: 3 },
+            { name: "ឆ្នាំមមី", en: "Horse", emoji: "🐎", elementIdx: 3 },
+            { name: "ឆ្នាំមមែ", en: "Goat", emoji: "🐐", elementIdx: 4 },
+            { name: "ឆ្នាំវក", en: "Monkey", emoji: "🐒", elementIdx: 0 },
+            { name: "ឆ្នាំរកា", en: "Rooster", emoji: "🐓", elementIdx: 0 },
+            { name: "ឆ្នាំច", en: "Dog", emoji: "🐕", elementIdx: 4 },
+            { name: "ឆ្នាំកុរ", en: "Pig", emoji: "🐖", elementIdx: 1 }
+        ];
+
+        const KHMER_SAK = [
+            "ឯកស័ក", "ទោស័ក", "ត្រីស័ក", "ចត្វាស័ក", "បញ្ចស័ក", 
+            "ឆស័ក", "សប្តស័ក", "អដ្ឋស័ក", "នព្វស័ក", "សំរឹទ្ធិស័ក"
+        ];
+
+        const KHMER_ELEMENTS = ["ធាតុដែក (Metal)", "ធាតុទឹក (Water)", "ធាតុឈើ (Wood)", "ធាតុភ្លើង (Fire)", "ធាតុដី (Earth)"];
+
+        const KHMER_DAYS = [
+            { km: "ថ្ងៃអាទិត្យ", en: "Sunday", colorName: "ពណ៌ក្រហម (Red)", colorClass: "bg-red-500", desc: "តំណាងឲ្យព្រះអាទិត្យ មានអំណាច និងភាពក្លាហាន" },
+            { km: "ថ្ងៃច័ន្ទ", en: "Monday", colorName: "ពណ៌លឿង (Yellow)", colorClass: "bg-amber-400 text-zinc-950", desc: "តំណាងឲ្យព្រះច័ន្ទ មានភាពទន់ភ្លន់ និងមេត្តា" },
+            { km: "ថ្ងៃអង្គារ", en: "Tuesday", colorName: "ពណ៌ស្វាយ (Purple)", colorClass: "bg-purple-600", desc: "តំណាងឲ្យព្រះអង្គារ មានភាពស្វាហាប់" },
+            { km: "ថ្ងៃពុធ", en: "Wednesday", colorName: "ពណ៌ស៊ីជម្ពូ (Pink)", colorClass: "bg-pink-500", desc: "តំណាងឲ្យព្រះពុធ មានប្រាជ្ញាវាងវៃ" },
+            { km: "ថ្ងៃព្រហស្បតិ៍", en: "Thursday", colorName: "ពណ៌បៃតង (Green)", colorClass: "bg-emerald-600", desc: "តំណាងឲ្យព្រះព្រហស្បតិ៍ មានសិរីសួស្តី" },
+            { km: "ថ្ងៃសុក្រ", en: "Friday", colorName: "ពណ៌ខៀវ / ផ្ទៃមេឃ (Blue)", colorClass: "bg-sky-500", desc: "តំណាងឲ្យព្រះសុក្រ មានភាពត្រជាក់ត្រជុំ" },
+            { km: "ថ្ងៃសៅរ៍", en: "Saturday", colorName: "ពណ៌ព្រលិត / ខ្មៅ (Violet)", colorClass: "bg-indigo-900", desc: "តំណាងឲ្យព្រះសៅរ៍ មានភាពរឹងមាំ" }
+        ];
+
+        const KHMER_MONTHS = [
+            "មករា", "កុម្ភៈ", "មីនា", "មេសា", "ឧសភា", "មិថុនា",
+            "កក្កដា", "សីហា", "កញ្ញា", "តុលា", "វិច្ឆិកា", "ធ្នូ"
+        ];
+
+        // Format Khmer or Arabic digits
+        function formatNum(num) {
+            if (num === null || num === undefined) return '';
+            const str = num.toString();
+            if (!useKhmerNumbers) return str;
+            const khmerDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩'];
+            return str.replace(/\d/g, d => khmerDigits[parseInt(d)]);
+        }
+
+        // Toggle Khmer vs Arabic Number System
+        function toggleNumberSystem() {
+            useKhmerNumbers = !useKhmerNumbers;
+            document.getElementById('numberToggleText').innerText = useKhmerNumbers ? 'លេខខ្មែរ (០-៩)' : 'លេខសាកល (0-9)';
+            calculateAll();
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 transition flex items-center justify-center gap-2";
+            });
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-2 bg-amber-500 text-zinc-950 shadow-md";
+            }
+        }
+
+        // Set Preset Date
+        function setPresetDate(dateStr, timeStr, nameStr) {
+            document.getElementById('birthDate').value = dateStr;
+            document.getElementById('birthTime').value = timeStr;
+            document.getElementById('userName').value = nameStr;
+            calculateAll();
+        }
+
+        // Main Calculation Trigger
+        function calculateAll(e) {
+            if (e) e.preventDefault();
+
+            const dateVal = document.getElementById('birthDate').value;
+            const timeVal = document.getElementById('birthTime').value || "08:30";
+            const nameVal = document.getElementById('userName').value.trim() || "អ្នក";
+
+            if (!dateVal) return;
+
+            const birthDateTime = new Date(`${dateVal}T${timeVal}:00`);
+            const now = new Date();
+
+            if (birthDateTime > now) {
+                showToast("សូមជ្រើសរើសថ្ងៃខែឆ្នាំកំណើតដែលនៅក្នុងអតីតកាល!");
+                return;
+            }
+
+            // Live Clock Interval
+            if (liveTimerInterval) clearInterval(liveTimerInterval);
+            updateLiveTime(birthDateTime, nameVal);
+            liveTimerInterval = setInterval(() => updateLiveTime(birthDateTime, nameVal), 1000);
+
+            // Additional Updates
+            updateZodiacAndLunar(birthDateTime);
+            updateTensesSection(birthDateTime, nameVal);
+            updateFunStats(birthDateTime);
+            populatePartnerYears(birthDateTime.getFullYear());
+            calculateCompatibility();
+        }
+
+        // Live Clock Ticker
+        function updateLiveTime(birthDateTime, nameVal) {
+            const now = new Date();
+
+            let years = now.getFullYear() - birthDateTime.getFullYear();
+            let months = now.getMonth() - birthDateTime.getMonth();
+            let days = now.getDate() - birthDateTime.getDate();
+
+            if (days < 0) {
+                months--;
+                const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            let hours = now.getHours() - birthDateTime.getHours();
+            let minutes = now.getMinutes() - birthDateTime.getMinutes();
+            let seconds = now.getSeconds() - birthDateTime.getSeconds();
+
+            if (seconds < 0) {
+                minutes--;
+                seconds += 60;
+            }
+            if (minutes < 0) {
+                hours--;
+                minutes += 60;
+            }
+            if (hours < 0) {
+                hours += 24;
+            }
+
+            globalCalculatedAge = years;
+
+            // DOM Display
+            document.getElementById('heroDisplayName').innerText = nameVal;
+            document.getElementById('certUserHeader').innerText = nameVal;
+
+            document.getElementById('ageYears').innerText = formatNum(years);
+            document.getElementById('ageMonths').innerText = formatNum(months);
+            document.getElementById('ageDays').innerText = formatNum(days);
+            document.getElementById('ageHours').innerText = formatNum(hours.toString().padStart(2, '0'));
+            document.getElementById('ageMinutes').innerText = formatNum(minutes.toString().padStart(2, '0'));
+            document.getElementById('ageSeconds').innerText = formatNum(seconds.toString().padStart(2, '0'));
+
+            // Header Date String
+            const d = birthDateTime.getDate().toString().padStart(2, '0');
+            const kmMonth = KHMER_MONTHS[birthDateTime.getMonth()];
+            const y = birthDateTime.getFullYear();
+            document.getElementById('fullBirthDateStr').innerText = `${formatNum(d)} / ${formatNum(kmMonth)} / ${formatNum(y)}`;
+
+            // Day of week & lucky color
+            const dayIdx = birthDateTime.getDay();
+            const dayInfo = KHMER_DAYS[dayIdx];
+
+            document.getElementById('dayOfWeekKm').innerText = dayInfo.km;
+            document.getElementById('dayOfWeekEn').innerText = `(${dayInfo.en})`;
+            document.getElementById('luckyColorName').innerText = dayInfo.colorName;
+            document.getElementById('luckyColorDesc').innerText = dayInfo.desc;
+
+            const badge = document.getElementById('luckyColorBadge');
+            badge.className = `w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-md shrink-0 ${dayInfo.colorClass}`;
+
+            // Certificate Update
+            document.getElementById('certAgeHeader').innerText = `អាយុ ${formatNum(years)} ឆ្នាំ`;
+            document.getElementById('certDetails').innerHTML = `កើតនៅ${dayInfo.km} ទី${formatNum(d)} ខែ${kmMonth} ឆ្នាំ${formatNum(y)}<br>រាសី៖ <span id="certZodiac" class="text-amber-400 font-bold"></span>`;
+        }
+
+        function updateZodiacAndLunar(birthDate) {
+            const year = birthDate.getFullYear();
+            
+            const zodiacIndex = (year - 4) % 12;
+            const zodiac = KHMER_ZODIACS[zodiacIndex >= 0 ? zodiacIndex : zodiacIndex + 12];
+
+            const sakIndex = (year - 4) % 10;
+            const sak = KHMER_SAK[sakIndex >= 0 ? sakIndex : sakIndex + 10];
+
+            const elementIndex = Math.floor(((year - 4) % 10) / 2);
+            const element = KHMER_ELEMENTS[elementIndex >= 0 ? elementIndex : elementIndex + 5];
+
+            document.getElementById('zodiacEmoji').innerText = zodiac.emoji;
+            document.getElementById('zodiacName').innerText = `${zodiac.name} (${zodiac.en})`;
+            document.getElementById('khmerSakName').innerText = sak;
+            document.getElementById('khmerElement').innerText = element;
+
+            const dayOfMonth = birthDate.getDate();
+            const lunarDay = (dayOfMonth % 15) || 15;
+            const phase = dayOfMonth <= 15 ? `កើត ${formatNum(lunarDay)} កើត` : `រោច ${formatNum(lunarDay)} រោច`;
+            document.getElementById('lunarPhaseText').innerText = phase;
+
+            const certZodiacEl = document.getElementById('certZodiac');
+            if (certZodiacEl) certZodiacEl.innerText = `${zodiac.name} ${sak} (${element})`;
+        }
+
+        // Partner Zodiac Option Population
+        function populatePartnerYears(userYear) {
+            const select = document.getElementById('partnerBirthYear');
+            select.innerHTML = '';
+            
+            const currentY = new Date().getFullYear();
+            for (let y = currentY; y >= 1930; y--) {
+                const zIdx = (y - 4) % 12;
+                const z = KHMER_ZODIACS[zIdx >= 0 ? zIdx : zIdx + 12];
+                const option = document.createElement('option');
+                option.value = y;
+                option.innerText = `${formatNum(y)} - ${z.name} (${z.en})`;
+                if (y === userYear - 2 || (y === 2000 && userYear !== 2000)) {
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            }
+        }
+
+        // Zodiac Compatibility Algorithm
+        function calculateCompatibility() {
+            const userDateVal = document.getElementById('birthDate').value;
+            if (!userDateVal) return;
+            const userYear = new Date(userDateVal).getFullYear();
+            const partnerYear = parseInt(document.getElementById('partnerBirthYear').value);
+
+            const userZIdx = ((userYear - 4) % 12 + 12) % 12;
+            const partnerZIdx = ((partnerYear - 4) % 12 + 12) % 12;
+
+            const userZ = KHMER_ZODIACS[userZIdx];
+            const partnerZ = KHMER_ZODIACS[partnerZIdx];
+
+            const userElemIdx = Math.floor((((userYear - 4) % 10 + 10) % 10) / 2);
+            const partnerElemIdx = Math.floor((((partnerYear - 4) % 10 + 10) % 10) / 2);
+
+            // Distance in 12-year cycle
+            const diff = Math.abs(userZIdx - partnerZIdx);
+
+            let score = 75;
+            let tag = "ធាតុស្របគ្នា (Good Compatibility)";
+            let advice = "មានភាពចុះសម្រុងគ្នាល្អ រក្សាការឆន្ទៈស្រឡាញ់គ្នា!";
+            let borderClass = "border-amber-500/50 bg-amber-500/10 text-amber-400";
+
+            if (diff === 4 || diff === 8) {
+                score = 95;
+                tag = "ត្រូវគ្នាល្អបំផុត (Trine Harmony - ត្រូវគ្នាតាមតម្រា)";
+                advice = "រាសីត្រូវគ្នាយ៉ាងល្អឥតខ្ចោះ (សាមគ្គីរាសី)! នាំមកនូវទ្រព្យ និងកុសលផលបុណ្យ។";
+                borderClass = "border-emerald-500/50 bg-emerald-500/10 text-emerald-400";
+            } else if (diff === 6) {
+                score = 45;
+                tag = "រាសីឆុង (Zodiac Opposition)";
+                advice = "តាមតម្រាមានធាតុឆុងខ្លះៗ។ គួរប្រើការអត់ធ្មត់ និងការយោគយល់គ្នាច្រើនជាគ្រឹះ។";
+                borderClass = "border-rose-500/50 bg-rose-500/10 text-rose-400";
+            } else if (diff === 0) {
+                score = 80;
+                tag = "ឆ្នាំរាសីដូចគ្នា (Same Zodiac)";
+                advice = "យល់ចិត្តគ្នាយ៉ាងច្បាស់ព្រោះមានចរិតលក្ខណៈស្រដៀងគ្នា!";
+                borderClass = "border-sky-500/50 bg-sky-500/10 text-sky-400";
+            }
+
+            document.getElementById('compatPercentCircle').className = `w-14 h-14 rounded-full border-2 flex items-center justify-center font-black text-lg shrink-0 ${borderClass}`;
+            document.getElementById('compatPercentCircle').innerText = `${score}%`;
+            document.getElementById('compatTag').className = `text-xs font-bold block ${borderClass.split(' ')[2]}`;
+            document.getElementById('compatTag').innerText = tag;
+            document.getElementById('compatSummary').innerText = `${userZ.name} & ${partnerZ.name} (${KHMER_ELEMENTS[userElemIdx]} + ${KHMER_ELEMENTS[partnerElemIdx]})`;
+            document.getElementById('compatAdvice').innerText = `"${advice}"`;
+        }
+
+        // Tenses Generator Update
+        function updateTensesSection(birthDate, nameVal) {
+            const year = birthDate.getFullYear();
+            const monthName = birthDate.toLocaleString('en-US', { month: 'long' });
+            const dayNum = birthDate.getDate();
+            const dayName = KHMER_DAYS[birthDate.getDay()].en;
+            const kmDayName = KHMER_DAYS[birthDate.getDay()].km;
+
+            // Past Tense
+            document.getElementById('pastEn').innerText = `"${nameVal} was born on ${dayName}, ${monthName} ${dayNum}, ${year}."`;
+            document.getElementById('pastKm').innerText = `${nameVal} បានកើតនៅ${kmDayName} ទី${formatNum(dayNum)} ខែ${KHMER_MONTHS[birthDate.getMonth()]} ឆ្នាំ${formatNum(year)}។`;
+
+            // Present Tense
+            document.getElementById('presentEn').innerText = `"${nameVal} is currently ${globalCalculatedAge} years old."`;
+            document.getElementById('presentKm').innerText = `បច្ចុប្បន្ន ${nameVal} មានអាយុ ${formatNum(globalCalculatedAge)} ឆ្នាំ។`;
+
+            // Future Tense
+            const now = new Date();
+            let nextBday = new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+            if (nextBday < now) {
+                nextBday.setFullYear(now.getFullYear() + 1);
+            }
+            const diffDays = Math.ceil((nextBday - now) / (1000 * 60 * 60 * 24));
+
+            document.getElementById('futureEn').innerText = `"${nameVal} will turn ${globalCalculatedAge + 1} years old in ${diffDays} days."`;
+            document.getElementById('futureKm').innerText = `${nameVal} នឹងគម្រប់អាយុ ${formatNum(globalCalculatedAge + 1)} ឆ្នាំនៅសល់ ${formatNum(diffDays)} ថ្ងៃទៀត។`;
+
+            // Slider Default
+            document.getElementById('ageSlider').value = globalCalculatedAge;
+            updateSliderTense(globalCalculatedAge);
+        }
+
+        // Interactive Age Slider for Learning Tenses
+        function updateSliderTense(val) {
+            const age = parseInt(val);
+            const nameVal = document.getElementById('userName').value.trim() || "Sokha";
+            document.getElementById('sliderAgeDisplay').innerText = `${formatNum(age)} ឆ្នាំ`;
+
+            const resultBox = document.getElementById('sliderTenseResult');
+            if (age < globalCalculatedAge) {
+                resultBox.className = "p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-200";
+                resultBox.innerHTML = `<strong>[Past Tense - អតីតកាល]:</strong> "When ${nameVal} <u>was</u> ${age} years old, they <u>learned</u> many important life lessons." <br><span class="text-[11px] opacity-80">(កាលពី ${nameVal} មានអាយុ ${formatNum(age)} ឆ្នាំ គេបានរៀនសូត្រនូវមេរៀនជីវិតយ៉ាងច្រើន)</span>`;
+            } else if (age === globalCalculatedAge) {
+                resultBox.className = "p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200";
+                resultBox.innerHTML = `<strong>[Present Tense - បច្ចុប្បន្នកាល]:</strong> "Now ${nameVal} <u>is</u> ${age} years old and <u>is building</u> a great future." <br><span class="text-[11px] opacity-80">(ឥឡូវនេះ ${nameVal} មានអាយុ ${formatNum(age)} ឆ្នាំ ហើយកំពុងកសាងអនាគតដ៏ភ្លឺស្វាង)</span>`;
+            } else {
+                resultBox.className = "p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200";
+                resultBox.innerHTML = `<strong>[Future Tense - អនាគតកាល]:</strong> "When ${nameVal} <u>reaches</u> ${age} years old, they <u>will achieve</u> their dreams." <br><span class="text-[11px] opacity-80">(នៅពេល ${nameVal} ឈានដល់អាយុ ${formatNum(age)} ឆ្នាំ គេនឹងសម្រេចបាននូវក្តីស្រមៃ)</span>`;
+            }
+        }
+
+        // Fun Stats Calculation
+        function updateFunStats(birthDate) {
+            const now = new Date();
+            const totalDays = Math.floor((now - birthDate) / (1000 * 60 * 60 * 24));
+            
+            const heartbeats = totalDays * 24 * 60 * 70;
+            const breaths = totalDays * 24 * 60 * 16;
+            const sleepYears = (globalCalculatedAge / 3).toFixed(1);
+
+            document.getElementById('statHeartbeats').innerText = formatNum(heartbeats.toLocaleString());
+            document.getElementById('statBreaths').innerText = formatNum(breaths.toLocaleString());
+            document.getElementById('statSleepYears').innerText = `${formatNum(sleepYears)} ឆ្នាំ`;
+
+            let nextBday = new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+            if (nextBday < now) {
+                nextBday.setFullYear(now.getFullYear() + 1);
+            }
+            const diffDays = Math.ceil((nextBday - now) / (1000 * 60 * 60 * 24));
+
+            document.getElementById('statNextBirthday').innerText = `នៅសល់ ${formatNum(diffDays)} ថ្ងៃ`;
+            const nD = nextBday.getDate().toString().padStart(2, '0');
+            const nM = (nextBday.getMonth() + 1).toString().padStart(2, '0');
+            document.getElementById('nextBirthdayDate').innerText = `${formatNum(nD)} / ${formatNum(nM)} / ${formatNum(nextBday.getFullYear())}`;
+        }
+
+        // Trigger Confetti Animation
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        // Copy Summary Text
+        function copySummaryText() {
+            const nameVal = document.getElementById('userName').value.trim() || "សុខា";
+            const birthStr = document.getElementById('fullBirthDateStr').innerText;
+            const pastKm = document.getElementById('pastKm').innerText;
+            const presentKm = document.getElementById('presentKm').innerText;
+            const futureKm = document.getElementById('futureKm').innerText;
+            const zodiacName = document.getElementById('zodiacName').innerText;
+
+            const textToCopy = `🎉 ព័ត៌មានអាយុ និងឆ្នាំរាសីរបស់៖ ${nameVal}\n📅 ថ្ងៃខែឆ្នាំកំណើត៖ ${birthStr}\n🐅 ឆ្នាំរាសី៖ ${zodiacName}\n\n📚 ប្រព័ន្ធ Grammar Tenses:\n- Past: ${pastKm}\n- Present: ${presentKm}\n- Future: ${futureKm}\n\n👉 គណនាដោយ៖ Khmer Age & Tenses Calculator System`;
+
+            const el = document.createElement('textarea');
+            el.value = textToCopy;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            showToast("បានចម្លងព័ត៌មានសង្ខេបរួចរាល់!");
+        }
+
+        // Print Card
+        function printCard() {
+            window.print();
+        }
+
+        // Custom Toast Notification
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 bg-zinc-900 text-amber-400 font-semibold text-xs px-4 py-3 rounded-xl shadow-2xl z-50 transition-all border border-amber-500/40 flex items-center gap-2';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3200);
+        }
+
+        // Initial Load
+        window.onload = function() {
+            document.getElementById('birthDate').value = "2003-02-04";
+            document.getElementById('birthTime').value = "08:30";
+            document.getElementById('userName').value = "សំណាង (Samnang)";
+            calculateAll();
+        };
+    </script>
+</body>
+</html>
